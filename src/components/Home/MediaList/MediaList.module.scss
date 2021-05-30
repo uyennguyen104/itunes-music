@@ -1,0 +1,11 @@
+@import 'theme';
+
+.MediaList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+  column-gap: $margin-lg;
+  row-gap: ($margin-lg - $card-padding-base-sm);
+  align-items: start;
+}
+.MediaTile {
+}

@@ -1,0 +1,9 @@
+@import 'theme';
+
+.PageContent {
+  padding: 0 $padding-lg;
+
+  > section {
+    padding: $padding-lg 0 $padding-xs;
+  }
+}

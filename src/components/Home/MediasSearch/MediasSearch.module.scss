@@ -1,0 +1,14 @@
+@import 'theme';
+
+.SearchWrap {
+  padding: $padding-lg;
+  border-bottom: 1px solid $border-color-split;
+
+  .SearchInput {
+    padding: 0;
+
+    .SearchInputIcon {
+      margin-right: $margin-xss;
+    }
+  }
+}

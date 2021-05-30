@@ -18,7 +18,6 @@ export function* getMediaList(payload) {
       return;
     }
     yield put(mediaActions.saveMediaList(response.results));
-    yield put(mediaActions.saveMediaListGenres(response.results));
   } catch (err) {
     yield put(mediaActions.saveMediaListLoading(false));
   }

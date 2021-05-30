@@ -88,7 +88,7 @@ module.exports = [
   {
     webpack: config => {
       config.resolve.extensions = [...config.resolve.extensions, '.less'];
-      config.plugins = [...config.plugins, new AntdScssThemePlugin('./src/theme.scss')];
+      config.plugins = [...config.plugins, new AntdScssThemePlugin('./src/assets/styles/scss/_theme.scss')];
 
       config = addLessLoader()(config);
 

@@ -6,11 +6,11 @@ const makeSelectMediaList = () =>
   createSelector(selectMediaState, (substate) => substate.mediaList);
 const makeSelectMediaListLoading = () =>
   createSelector(selectMediaState, (substate) => substate.mediaListLoading);
-const makeSelectMediaListGenres = () =>
-  createSelector(selectMediaState, (substate) => substate.mediaListGenres);
+const makeSelectMediaGenres = () =>
+  createSelector(selectMediaState, (substate) => substate.mediaGenres);
 
 export {
   makeSelectMediaList,
   makeSelectMediaListLoading,
-  makeSelectMediaListGenres,
+  makeSelectMediaGenres,
 };

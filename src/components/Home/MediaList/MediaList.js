@@ -2,45 +2,63 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import { makeSelectMediaList } from 'redux/selectors';
+import { makeSelectMediaList, makeSelectMediaListLoading } from 'redux/selectors';
 
-import { Typography } from 'antd';
-import { Card } from 'antd';
+import { Typography, Card, Spin } from 'antd';
+import CustomEmpty from 'components/reusable/CustomEmpty/CustomEmpty';
 
 import classes from './MediaList.module.scss';
 
+const { Title } = Typography;
 
 class MediaList extends PureComponent {
-  render() {
-    const { Title } = Typography;
-    const { Meta } = Card;
-    const { mediaList } = this.props;
+  getFilteredMediaList = () => {
+    const { mediaList, selectedGenres } = this.props;
+    if (!selectedGenres || !selectedGenres.length) return mediaList;
+    return mediaList.filter(media => selectedGenres.includes(media.primaryGenreName));
+  }
 
-    return (<>
-      <Title level={4}>Results (100)</Title>
-      { mediaList.length
+  render() {
+    const { mediaListLoading } = this.props;
+    const filteredMediaList = this.getFilteredMediaList();
+
+    return (<Spin tip="Loading..." spinning={mediaListLoading}>
+      <Title
+        className={classes.SectionTitle}
+        level={4}
+      >
+        Results {filteredMediaList.length > 0 ? `(${filteredMediaList.length})` : ''}
+      </Title>
+      { filteredMediaList.length
         ? (<div className={classes.MediaList}>
-            { mediaList.map(media => (
+            { filteredMediaList.map(media => (
               <Card
                 key={media.trackId}
-                cover={<img alt={`${media.trackName} - ${media.artistName}`} src={media.artworkUrl100} />}
+                cover={
+                  <div className={classes.MediaCover}>
+                    <img alt={`${media.trackName} - ${media.artistName}`} src={media.artworkUrl100} />
+                  </div>
+                }
                 bordered={false}
                 size="small"
                 className={classes.MediaTile}
               >
-                <Meta title={media.trackName} description={media.artistName} />
+                <div className={classes.MediaTileMeta}>
+                  <p className={classes.Title}>{media.trackName}</p>
+                  <p className={classes.Description}>{media.artistName}</p>
+                </div>
               </Card>
             )) }
           </div>)
-        : 'No results'
+        : <CustomEmpty />
       }
-
-    </>);
+    </Spin>);
   }
 }
 
 const mapStateToProps = createStructuredSelector({
   mediaList: makeSelectMediaList(),
+  mediaListLoading: makeSelectMediaListLoading(),
 });
 const withConnect = connect(mapStateToProps, null);
 export default compose(withConnect)(MediaList);

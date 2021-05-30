@@ -1,0 +1,28 @@
+@import '../../../assets/styles/scss/theme';
+
+.SectionTitle {
+  padding-bottom: $padding-xs;
+}
+.GenreTags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-right: -($padding-lg);
+
+  .GenreTag {
+    border: 1px solid $border-color-base;
+    border-radius: $border-radius-base;
+    padding: 0 $padding-md;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: $margin-sm;
+    margin-top: $margin-md;
+    user-select: none;
+
+    &.Checked {
+      border-color: $primary-color;
+      font-weight: 600;
+    }
+  }
+}
+

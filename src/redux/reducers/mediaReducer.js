@@ -7,7 +7,22 @@ import {
 const initialState = {
   mediaList: [],
   mediaListLoading: false,
-  mediaListGenres: [],
+  mediaGenres: [
+    'Blues',
+    'Classical',
+    'Country',
+    'Dance',
+    'Electronic',
+    'Hip-Hop',
+    'Jazz',
+    'Latin',
+    'Metal',
+    'Party',
+    'R&B/Soul',
+    'Reggae/Dancehall',
+    'Soundtracks',
+    'World',
+  ],
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,7 +42,7 @@ const reducer = (state = initialState, action) => {
     case SAVE_MEDIA_LIST_GENRES: {
       return {
         ...state,
-        mediaListGenres: action.mediaListGenres ? [...action.mediaListGenres] : [],
+        mediaGenres: action.mediaGenres ? [...action.mediaGenres] : [],
       };
     }
     default:

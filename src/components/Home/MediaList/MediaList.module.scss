@@ -1,11 +1,52 @@
-@import 'theme';
+@import '../../../assets/styles/scss/theme';
 
+.SectionTitle {
+  margin-bottom: -($margin-sm);
+}
 .MediaList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
-  column-gap: $margin-lg;
-  row-gap: ($margin-lg - $card-padding-base-sm);
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-right: -($padding-lg);
 }
 .MediaTile {
+  width: 112px;
+  margin-right: $margin-lg;
+  margin-top: ($margin-lg - $card-padding-base-sm);
+
+  .MediaTileMeta {
+    margin-left: -($card-padding-base-sm);
+    margin-right: -($card-padding-base-sm);
+  }
+  .MediaCover {
+    width: 112px;
+    height: 112px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: stretch;
+    background-color: $border-color-split;
+    border-radius: $card-radius $card-radius 0 0;
+
+    > img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  .Title, .Description {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .Title {
+    font-weight: 600;
+    font-size: $font-size-base;
+    padding-bottom: $padding-xss;
+  }
+  .Description {
+    font-size: $font-size-sm;
+    color: $text-color-secondary;
+    padding-bottom: 0;
+  }
 }

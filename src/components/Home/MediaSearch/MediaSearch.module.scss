@@ -1,8 +1,13 @@
-@import 'theme';
+@import '../../../assets/styles/scss/theme';
 
 .SearchWrap {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  left: 0;
   padding: $padding-lg;
   border-bottom: 1px solid $border-color-split;
+  background-color: $white;
 
   .SearchInput {
     padding: 0;

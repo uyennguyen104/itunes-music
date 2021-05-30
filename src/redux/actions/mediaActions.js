@@ -27,9 +27,9 @@ export function saveMediaListLoading(mediaListLoading) {
     mediaListLoading
   };
 }
-export function saveMediaListGenres(mediaListGenres) {
+export function saveMediaGenres(mediaGenres) {
   return {
     type: SAVE_MEDIA_LIST_GENRES,
-    mediaListGenres
+    mediaGenres
   };
 }

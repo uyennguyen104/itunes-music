@@ -1,39 +1,45 @@
-# Getting Started with Create React App
+# The iTunes Music
+This is an application that will fetch music results from iTunes api and display the results according to the design requirements.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
 
-## Available Scripts
+This is a responsive and pixel perfect single page application that uses iTunes search API to fetch information within the iTunes Store based on the user&#39;s search query.
 
-In the project directory, you can run:
+- Search
+  1. Users can type in any phrase they like
+- Filter by genre
+  1. Users can click on any of the existing Genre present in the Filter Genre section to fetch results for the particular genre
+- Show music result
+  1. Once results are returned successfully from the api request, display the results and the count according to the design specifications
+- Display empty box when no results are returned from the api call
 
-### `yarn`
+## Technologies
 
-Install dependencies for the project
+- Use React as the UI library
+- Use redux for state management. Use redux-saga as a middleware library.
+- Use Ant Design(https://ant.design/) as a UI library
+- Use SCSS as a CSS preprocessor
 
-### `yarn start`
+## Browsers support
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Browsers that with last 2 versions
+- Not ie <= 8
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting started
 
-### `yarn build`
+```bash
+# make sure you have installed npm and yarn already
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+``` bash
+# install dependencies
+> yarn
+# serve with hot reload at localhost:3000
+> yarn start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Other commands available are:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+``` bash
+# build for production with minification
+> yarn build
